@@ -1,2 +1,2 @@
-# haze
-Personal Arch Linux Installation. Contains Caffeine💀
+# haze (Contains Caffeine)
+Personal Arch Linux installation based on DWM
