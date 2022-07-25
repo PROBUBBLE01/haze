@@ -1,2 +1,2 @@
 # Haze
-Personal Arch Linux setu based on Dynamic Window Manager
+Personal Arch Linux setup based on DWM
