@@ -1,4 +1,4 @@
-![image](logo.png)
+![image](haze-logo.png)
 
 Personal Arch Linux setup based on DWM
 
