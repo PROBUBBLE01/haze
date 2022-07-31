@@ -3,7 +3,7 @@
 
 ##### Programs used:
 - Window Manager : Dynamic Window Manager
-- Apllication Launcher : Dmenu
+- Aplication Launcher : Dmenu
 - Terminal : Alacritty
 - Editor : Neovim
 - Shell : Zsh
