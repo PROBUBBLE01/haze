@@ -1,2 +1,2 @@
-![image](hazelogo.png)
+![image](logohaze.png)
 ![image](haze.png)
