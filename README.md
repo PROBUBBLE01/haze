@@ -1,5 +1,5 @@
-![image](logohaze.png)
-![image](haze.png)
+![image](dotpics/dothazelogo.png)
+![image](dotpics/desktop.png)
 
 ##### Programs used:
 - Window Manager : Dynamic Window Manager
