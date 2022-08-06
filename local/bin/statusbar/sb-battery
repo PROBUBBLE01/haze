@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Loop through all attached batteries and format the info
+for battery in /sys/class/power_supply/BAT?*; do
+	# If non-first battery, print a space separator.
+	[ -n "${capacity+x}" ] && printf " "
+
+	capacity="$(cat "$battery/capacity" 2>&1)"
+	if [ "$capacity" -gt 90 ]; then
+		status=" "
+	elif [ "$capacity" -gt 70 ]; then
+		status=" "
+	elif [ "$capacity" -gt 50 ]; then
+		status=" "
+	elif [ "$capacity" -gt 30 ]; then
+		status=" "
+	elif [ "$capacity" -gt 10 ]; then
+		status=" "
+	else
+		status=" "
+	fi
+
+	# Sets up the status and capacity
+	case "$(cat "$battery/status" 2>&1)" in
+		Charging) status="ﮣ $status" ;;
+		Unknown) status=" " ;;
+#		*) exit 1 ;;
+	esac
+
+	# Prints the info
+	printf "$status$capacity%%" 
+done && echo
