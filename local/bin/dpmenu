@@ -1,0 +1,20 @@
+#!/bin/sh
+
+function powermenu {
+    options="襤 Shutdown\nﰇ Restart\n⏾ Sleep\n Lock\nﰸ Cancel"
+    selected=$(echo -e $options | dmenu -p "Power Menu" -fn "SF Mono:style=Semibold:size=10:antialias=true:autohint=true","SauceCodePro Nerd Font:size=20:antialias=true:autohint=true" -nb "#222222" -nf "#bbbbbb" -sb "#121212" -sf "#eeeeee")
+
+    if [[ $selected = "襤 Shutdown" ]]; then
+        systemctl poweroff --no-wall
+    elif [[ $selected = "ﰇ Restart" ]]; then
+        systemctl reboot --no-wall
+    elif [[ $selected = "⏾ Sleep" ]]; then
+        systemctl suspend --no-wall
+    elif [[ $selected = " Lock" ]]; then
+        slock
+    elif [[ $selected = "ﰸ Cancel" ]]; then
+        return
+    fi
+}
+
+powermenu
