@@ -1,8 +1,15 @@
-alias ls="ls --color=auto"
+alias ls="ls --color=auto --group-directories-first"
+alias la="ls --color=auto -lah --group-directories-first"
+alias grep="grep --color=auto"
+
 alias v="nvim"
 alias sv="sudo nvim"
 alias nt="ping 8.8.8.8"
 alias myip="nmcli | grep inet4 | cut -b 8- | cut -d '/' -f 1"
-alias la="ls --color=auto -la"
+alias ccp="pwd | xsel -b"
 alias reload="source ~/.zshrc"
+
 alias update="sudo pacman -Syu"
+alias poweroff="systemctl poweroff --no-wall"
+alias reboot="systemctl reboot --no-wall"
+alias suspend="systemctl suspend --no-wall"
