@@ -1,3 +1,6 @@
+# Keyboard repeat speed
+xset r rate 300 5
+
 # Set Wallpaper
 ~/.config/fehbg &
 
@@ -7,20 +10,8 @@ dunst &
 # Compositor
 picom &
 
-# Systray icon for battery
-cbatticon -u 5 -n -l 19 -r 5 -o "brightnessctl -q s 10" -c "systemctl hibernate" &
-
 # Systray Icon For NetworkManager
 nm-applet &
 
-# Systray Icon For Volumebar
-volumeicon &
-
-# Keyboard Repeat speed
-xset r rate 300 50
-
-# Date And Time Statusbar
-while true; do
-	xsetroot -name "$( date "+%^b %d %^a  %R")"
-	sleep 30
-done &
+# Status Bar Monitor Using Dwmblocks-async
+dwmblocks &
