@@ -4,7 +4,7 @@
 ##### Programs used:
 - Window Manager : Dynamic Window Manager
 - Aplication Launcher : Dmenu
-- Terminal : Alacritty
+- Terminal : Kitty
 - Editor : Neovim
 - Shell : Zsh
 - Icons : Papirus
