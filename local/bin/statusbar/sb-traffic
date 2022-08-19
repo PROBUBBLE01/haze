@@ -1,22 +1,16 @@
 #!/bin/sh
 
-# Creates two variables with cumilative traffic bytes
 rx1="$(($(cat /sys/class/net/[ew]*/statistics/rx_bytes | paste -sd '+')))"
 sleep 1
 rx2="$(($(cat /sys/class/net/[ew]*/statistics/rx_bytes | paste -sd '+')))"
 
-# Calculates traffic per second by finding the difference 
 bps=`expr $rx2 - $rx1`
-
-# Converts to Kilobytes per second
 kbps=`expr $bps / 1024`
-
-# Converts to Megabytes per second 
 mbps=`expr $kbps / 1024`
 
-# Outputs in Megabytes only if the speed is greater than 1MB/s. unless in KB/s
-if [ "$mbps" -gt 1 ]; then
+if [ "$mbps" -ge 1 ]; then
     echo "$mbps M/s"
 else
     echo "$kbps K/s"
 fi
+

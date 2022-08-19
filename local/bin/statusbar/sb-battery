@@ -6,16 +6,16 @@ for battery in /sys/class/power_supply/BAT?*; do
 	[ -n "${capacity+x}" ] && printf " "
 
 	capacity="$(cat "$battery/capacity" 2>&1)"
-	if [ "$capacity" -gt 90 ]; then
+	if [ "$capacity" -gt 80 ]; then
 		status=" "
-	elif [ "$capacity" -gt 70 ]; then
+	elif [ "$capacity" -gt 60 ]; then
 		status=" "
-	elif [ "$capacity" -gt 50 ]; then
+	elif [ "$capacity" -gt 40 ]; then
 		status=" "
-	elif [ "$capacity" -gt 30 ]; then
+	elif [ "$capacity" -gt 19 ]; then
 		status=" "
-	elif [ "$capacity" -gt 10 ]; then
-		status=" "
+#	elif [ "$capacity" -gt 10 ]; then
+#		status=" "
 	else
 		status=" "
 	fi
