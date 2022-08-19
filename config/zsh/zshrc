@@ -1,6 +1,7 @@
-autoload -U colors && colors
-PROMPT=$'%F{242}%~%f\n%B %b'
-stty stop undef
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 HISTFILE=~/.cache/histfile
 HISTSIZE=1000
 SAVEHIST=5000
@@ -14,6 +15,11 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
+source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
 # Custom scripts
 source ~/.config/zsh/scripts/lfcd.sh
 bindkey -s '^o' 'lfcd\n'
@@ -26,3 +32,5 @@ source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Syntax highlighting
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
