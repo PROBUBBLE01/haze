@@ -1,0 +1,8 @@
+alwayscenter ---
+centertitle ---
+fixboders ---
+rotatestack ---
+systray ---
+uselessgap ---
+
+--- barheight
