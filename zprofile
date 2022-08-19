@@ -1,6 +1,6 @@
 export EDITOR="nvim"
-export TERMINAL="alacritty"
-export BROWSER="brave"
+export TERMINAL="kitty"
+export BROWSER="librewolf"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -17,4 +17,4 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export PATH=$PATH:/home/pzerone/.local/bin
 export PATH=$PATH:/home/pzerone/.local/bin/statusbar
 
-export PF_INFO="ascii title os host kernel wm uptime pkgs memory"
+export PF_INFO="ascii title os kernel wm uptime pkgs memory"

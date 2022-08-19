@@ -1,17 +1,17 @@
-# Keyboard repeat speed
-xset r rate 300 5
+# Compositor
+picom & 
 
 # Set Wallpaper
 ~/.config/fehbg &
 
-# Notification Server
-dunst &
-
-# Compositor
-picom &
-
 # Systray Icon For NetworkManager
 nm-applet &
 
-# Status Bar Monitor Using Dwmblocks-async
+# Status monitor dwmblocks-async 
 dwmblocks &
+
+# Notification Server
+dunst &
+
+# Keyboard Repeat speed
+xset r rate 300 50
