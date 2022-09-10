@@ -8,5 +8,5 @@
 - Editor : Neovim
 - Shell : Zsh
 - Icons : Papirus
-- Font : SF Mono, Source Code Pro (Nerd Font)
-- GTK-Theme : Skeuos-Gray
+- Font : SF Pro Text, Source Code Pro (Nerd Font)
+- GTK-Theme : Mantis
