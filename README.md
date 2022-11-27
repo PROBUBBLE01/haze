@@ -1,5 +1,5 @@
 ![image](dotpics/dothazelogo.png)
-![image](dotpics/desktop.png)
+![image](dotpics/1669560730.png)
 
 ##### Programs used:
 - Window Manager : Dynamic Window Manager
