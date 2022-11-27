@@ -11,8 +11,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "SF Mono:style=Semibold:size=10:antialias=true:autohint=true","SauceCodePro Nerd Font:style=Regular:size=10:antialias=true:autohint=true" };
-static const char dmenufont[]       = "SF Mono:style=Semibold:size=10:antialias=true:autohint=true";
+static const char *fonts[]          = { "SF Pro Text:style=Semibold:size=9:antialias=true:autohint=true","SauceCodePro Nerd Font:style=Regular:size=10:antialias=true:autohint=true","Noto Color Emoji:pixelsize=12:antialias=true:autohint=true" };
+static const char dmenufont[]       = "SF Pro Text:style=Semibold:size=9:antialias=true:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -66,18 +66,18 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray5, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *inclight[] = { "brightnessctl", "-q", "s", "+10", NULL};
 static const char *declight[] = { "brightnessctl", "-q", "s", "10-", NULL};
 static const char *lockcmd[]  = { "slock", NULL };
-static const char *browser[]  = { "librewolf", NULL };
-static const char *files[]    = { "thunar", NULL };
+static const char *browser[]  = { "firefox", NULL };
+static const char *files[]    = { "nemo", NULL };
 
 /* SHCMD Commands */
 static const char incvol[]    =  "pamixer -i 3 && kill -35 $(pidof dwmblocks)";
 static const char decvol[]    =  "pamixer -d 3 && kill -35 $(pidof dwmblocks)";
 static const char mutevol[]   =  "pamixer -t && kill -35 $(pidof dwmblocks)";
-static const char printscr[]  = "maim ~/Pictures/Screenshots/$(date +%s).png";
+static const char printscr[]  = "maim ~/Pictures/Screenshots/$(date +%s).png && notify-send -i image 'Screenshot Saved'";
 static const char dpmenu[]    = "dpmenu";
 
 static const Key keys[] = {
@@ -104,7 +104,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_s,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },

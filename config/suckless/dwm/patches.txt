@@ -4,5 +4,3 @@ fixboders ---
 rotatestack ---
 systray ---
 uselessgap ---
-
---- barheight
