@@ -2,7 +2,7 @@
 picom & 
 
 # Set Wallpaper
-~/.config/fehbg &
+fehbg &
 
 # Systray Icon For NetworkManager
 nm-applet &
@@ -11,4 +11,4 @@ nm-applet &
 dwmblocks &
 
 # Notification Server
-dunst &
+#dunst &
