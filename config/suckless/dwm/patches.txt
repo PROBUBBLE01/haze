@@ -1,6 +1,12 @@
-alwayscenter ---
-centertitle ---
-fixboders ---
-rotatestack ---
-systray ---
-uselessgap ---
+Diffs
+
+    dwm-alwayscenter-20200625-f04cac6.diff
+    dwm-centretitle-20200907-61bb8b2.diff
+    dwm-fixborders-6.2.diff
+    dwm-pertag-20200914-61bb8b2.diff
+    dwm-systray-6.4.diff
+    dwm-uselessgap-20211119-58414bee958f2.diff
+
+Manual
+    
+    Changed from 1000/60 to 1000/120 on movemouse() and resizemouse() functions to increase smoothness when resizing and moving windows with mouse
