@@ -9,8 +9,8 @@ kbps=`expr $bps / 1024`
 mbps=`expr $kbps / 1024`
 
 if [ "$mbps" -ge 1 ]; then
-    echo "$mbps M/s"
+    printf "   $mbps M/s \n"
 else
-    echo "$kbps K/s"
+    printf "   $kbps K/s \n" 
 fi
 

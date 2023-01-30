@@ -1,17 +1,17 @@
 #!/bin/sh
 
-[ $(pamixer --get-mute) = true ] && echo ﱝ && exit
+[ $(pamixer --get-mute) = true ] && printf " ﱝ " && exit
 
 vol="$(pamixer --get-volume)"
 
-if [ "$vol" -gt "70" ]; then
-	icon="墳"
+if [ "$vol" -gt "60" ]; then
+	icon=" 墳 "
 elif [ "$vol" -gt "30" ]; then
-	icon="奔"
+	icon=" 奔 "
 elif [ "$vol" -gt "0" ]; then
-	icon="奄"
+	icon=" 奄 "
 else
-        echo 奄 && exit
+        printf " 奄 " && exit
 fi
 
-echo "$icon $vol%"
+printf " $icon $vol%%\n"
