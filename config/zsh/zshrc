@@ -24,6 +24,11 @@ source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/scripts/lfcd.sh
 bindkey -s '^o' 'lfcd\n'
 
+# paste.rs
+function paste() {
+              local file=${1:-/dev/stdin}
+              curl --data-binary @${file} https://paste.rs
+          }
 # Aliases
 source ~/.config/zsh/alias
 
