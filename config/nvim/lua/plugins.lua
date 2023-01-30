@@ -1,10 +1,22 @@
-return require('packer').startup(function()
-use 'wbthomason/packer.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+return require('lazy').setup({
 
-use {'kyazdani42/nvim-tree.lua',
-requires = {'kyazdani42/nvim-web-devicons',}}
+'navarasu/onedark.nvim',
 
-use 'kvrohit/substrata.nvim'
+'windwp/nvim-autopairs',
 
-use 'windwp/nvim-autopairs'
-end)
+{
+  'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true },
+},
+})

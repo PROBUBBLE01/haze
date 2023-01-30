@@ -8,6 +8,7 @@ vim.opt.relativenumber = true
 vim.opt.hidden = true
 vim.opt.autoread = true
 vim.opt.wildmenu = true
+vim.opt.termguicolors = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
