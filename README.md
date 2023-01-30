@@ -9,4 +9,4 @@
 - Shell : Zsh
 - Icons : Papirus
 - Font : SF Pro Text, Source Code Pro (Nerd Font)
-- GTK-Theme : Vimix-Dark_Gray
+- GTK-Theme : Vimix-Dark-Gray
