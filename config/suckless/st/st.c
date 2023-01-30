@@ -955,7 +955,7 @@ ttyresize(int tw, int th)
 }
 
 void
-ttyhangup()
+ttyhangup(void)
 {
 	/* Send SIGHUP to shell */
 	kill(pid, SIGHUP);
@@ -1075,11 +1075,6 @@ tnew(int col, int row)
 
 	tresize(col, row);
 	treset();
-}
-
-int tisaltscr(void)
-{
-	return IS_SET(MODE_ALTSCREEN);
 }
 
 void
