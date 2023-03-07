@@ -10,3 +10,4 @@
 - Icons : Papirus
 - Font : SF Pro Text, Source Code Pro (Nerd Font)
 - GTK-Theme : Vimix-Dark-Gray
+
