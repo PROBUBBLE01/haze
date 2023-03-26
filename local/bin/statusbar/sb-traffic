@@ -1,16 +1,22 @@
 #!/bin/sh
 
-rx1="$(($(cat /sys/class/net/[ew]*/statistics/rx_bytes | paste -sd '+')))"
+set -- /sys/class/net/[ew]*/statistics/rx_bytes
+bps=0
+
+for path do
+	read -r rx_bytes <"$path"
+	bps=$((bps + rx_bytes))
+done
+
 sleep 1
-rx2="$(($(cat /sys/class/net/[ew]*/statistics/rx_bytes | paste -sd '+')))"
 
-bps=`expr $rx2 - $rx1`
-kbps=`expr $bps / 1024`
-mbps=`expr $kbps / 1024`
+for path do
+	read -r rx_bytes <"$path"
+	bps=$((bps - rx_bytes))
+done
 
-if [ "$mbps" -ge 1 ]; then
-    printf "   $mbps M/s \n"
-else
-    printf "   $kbps K/s \n" 
-fi
+bps=${bps#-}
 
+speed=$(awk -v bps=$bps 'BEGIN { kbps=bps/1024; mbps=kbps/1024; if (mbps >= 1.0) { printf "   %.1f M/s\n", mbps } else { printf "   %.0f K/s\n", kbps } }')
+
+printf "$speed"
