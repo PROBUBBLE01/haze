@@ -17,6 +17,6 @@ done
 
 bps=${bps#-}
 
-speed=$(awk -v bps=$bps 'BEGIN { kbps=bps/1024; mbps=kbps/1024; if (mbps >= 1.0) { printf "   %.1f M/s\n", mbps } else { printf "   %.0f K/s\n", kbps } }')
+speed=$(awk -v bps=$bps 'BEGIN { kbps=bps/1024; mbps=kbps/1024; if (mbps >= 1.0) { printf "   %.1f M/s", mbps } else { printf "   %.0f K/s", kbps } }')
 
-printf "$speed"
+echo " $speed"
