@@ -10,3 +10,5 @@ Diffs
 Manual
     
     Changed from 1000/60 to 1000/120 on movemouse() and resizemouse() functions to increase smoothness when resizing and moving windows with mouse
+
+    Removed monocle mode window count from bar

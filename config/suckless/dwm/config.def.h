@@ -11,7 +11,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "SF Pro Text:style=Semibold:size=9:antialias=true:autohint=true","SauceCodePro Nerd Font:style=Regular:size=10:antialias=true:autohint=true","Noto Color Emoji:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[]          = { "SF Pro Text:style=Semibold:size=9:antialias=true:autohint=true","SauceCodePro Nerd Font:style=Regular:size=10:antialias=true:autohint=true","Noto Color Emoji:style=Regular:pixelsize=12:antialias=true:autohint=true"};
 static const char dmenufont[]       = "SF Pro Text:style=Semibold:size=9:antialias=true:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -34,9 +34,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class       instance      title     tags mask   isfloating      monitor */
-	{ "Pavucontrol", NULL,       NULL,       0,            0,           -1 },
-	{ "firefox",     "Places",   NULL,       0,            1,           -1 },
+	/* class           instance            title     tags mask   isfloating      monitor */
+	{ "firefox",       "Places",           NULL,       0,            1,           -1 },
+	{ "Timeshift-gtk", "timeshift-gtk",    NULL,       0,            1,           -1 },
+	{ "Pavucontrol",   "pavucontrol",      NULL,       0,            1,           -1 },
+	{ "Nsxiv",         "nsxiv",            NULL,       0,            1,           -1 },
+	{ "firefox",       "Toolkit",          NULL,       0,            1,           -1 },
+	{ "Localsend_app", "localsend_app",    NULL,       0,            1,           -1 },
         
 };
 
@@ -48,8 +52,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "﩯",      tile },    /* first entry is default */
-	{ "",      NULL },    /* no layout function means floating behavior */
+	{ "󰕰",      tile },    /* first entry is default */
+	{ "󰄶",      NULL },    /* no layout function means floating behavior */
 	{ "",      monocle },
 };
 
@@ -72,13 +76,13 @@ static const char *inclight[] = { "brightnessctl", "-q", "s", "+10", NULL};
 static const char *declight[] = { "brightnessctl", "-q", "s", "10-", NULL};
 static const char *lockcmd[]  = { "slock", NULL };
 static const char *browser[]  = { "firefox", NULL };
-static const char *files[]    = { "thunar", NULL };
+static const char *files[]    = { "pcmanfm", NULL };
 
 /* SHCMD Commands */
 static const char incvol[]    =  "pamixer -i 3 && kill -35 $(pidof dwmblocks)";
 static const char decvol[]    =  "pamixer -d 3 && kill -35 $(pidof dwmblocks)";
 static const char mutevol[]   =  "pamixer -t && kill -35 $(pidof dwmblocks)";
-static const char printscr[]  = "maim ~/Pictures/Screenshots/$(date +%s).png && notify-send -i photo 'Screenshot Saved'";
+static const char printscr[]  = "maim -s ~/Media/Pictures/Screenshots/$(date +%s).png && notify-send -i photo 'Screenshot Saved'";
 static const char dpmenu[]    = "dpmenu";
 
 static const Key keys[] = {
