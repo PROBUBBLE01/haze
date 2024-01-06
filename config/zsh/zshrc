@@ -5,12 +5,13 @@ fi
 HISTFILE=~/.cache/histfile
 HISTSIZE=1000
 SAVEHIST=5000
+setopt HIST_IGNORE_DUPS
 setopt autocd extendedglob
 unsetopt beep
 bindkey -v
 
 autoload -U compinit
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu select matcher-list 'm:{a-z}={A-Z}'
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
@@ -21,14 +22,22 @@ source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # Custom scripts
-source ~/.config/zsh/scripts/lfcd.sh
-bindkey -s '^o' 'lfcd\n'
+source ~/.config/zsh/scripts
 
-# paste.rs
-function paste() {
-              local file=${1:-/dev/stdin}
-              curl --data-binary @${file} https://paste.rs
-          }
+# Open lf and cd to the folder at exit
+bindkey -s '^o' 'lfcd\n'
+# Add other fzf goodness
+export FZF_COMPLETION_TRIGGER='~~'
+export FZF_ALT_C_COMMAND='find . -type d'
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+# Exit on Ctrl-D even when there is text in prompt
+exit_zsh() { exit }
+zle -N exit_zsh
+bindkey '^D' exit_zsh
+
 # Aliases
 source ~/.config/zsh/alias
 
@@ -37,5 +46,3 @@ source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Syntax highlighting
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
