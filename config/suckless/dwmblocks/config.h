@@ -1,6 +1,6 @@
 #define CMDLENGTH 45
 #define DELIMITER "  "
-#define CLICKABLE_BLOCKS
+/*#define CLICKABLE_BLOCKS*/
 
 const Block blocks[] = {
         BLOCK("sb-traffic",  3,    0),
