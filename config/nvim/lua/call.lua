@@ -5,4 +5,4 @@ require 'onedark'.setup {
 
 require 'onedark'.load()
 require 'nvim-autopairs'.setup()
-
+require 'telescope'

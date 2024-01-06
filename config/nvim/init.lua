@@ -1,5 +1,5 @@
 require ('opts')
-require ('keybinds')
 require ('plugins')
 require ('call')
 require ('linelua')
+require ('keybinds')

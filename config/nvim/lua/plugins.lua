@@ -17,6 +17,10 @@ return require('lazy').setup({
 'windwp/nvim-autopairs',
 
 {
-  'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true },
-},
+    'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim', lazy = true },
+    },
+
+{
+    'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true },
+    },
 })

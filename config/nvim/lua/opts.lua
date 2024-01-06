@@ -15,5 +15,5 @@ vim.opt.incsearch = true
 vim.opt.showmatch = true
 vim.opt.hlsearch = true
 vim.opt.shortmess = vim.opt.shortmess + 'c'
-vim.opt.mouse = 'a'
 vim.opt.guicursor = 'i:block'
+-- vim.opt.clipboard = 'unnamedplus'
