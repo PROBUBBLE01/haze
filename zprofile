@@ -16,3 +16,6 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 # Scrits directory
 export PATH=$PATH:/home/pzerone/.local/bin
 export PATH=$PATH:/home/pzerone/.local/bin/statusbar
+
+# Gopath
+export PATH=$PATH:/home/pzerone/.local/share/go/bin
