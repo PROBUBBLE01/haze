@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "SauceCodePro Nerd Font Mono:style=Regular:pixelsize=18:antialias=true:autohint=true";
-static char *font2[] = {"Noto Color Emoji:style=Regular:pixelsize=14:antialias=true:autohint=true"};
+static char *font2[] = {"Noto Color Emoji:style=Regular:pixelsize=12:antialias=true:autohint=true"};
 static int borderpx = 2;
 /*
  * What program is execed by st depends of these precedence rules:
@@ -94,7 +94,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.9;
+float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -120,7 +120,7 @@ static const char *colorname[] = {
   [15] = "#ffffff", /* white   */
 
   /* special colors */
-  [256] = "#1e2127", /* background */
+  [256] = "#151517", /* background */
   [257] = "#abb2bf", /* foreground */
 };
 
@@ -183,9 +183,12 @@ static uint forcemousemod = ShiftMask;
  */
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
-	{ 0,                    Button4, kscrollup,      {.i = 1} },
-	{ 0,                    Button5, kscrolldown,    {.i = 1} },
-	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
+	{ 0,                    Button4, kscrollup,      {.i =  3} },
+	{ 0,                    Button5, kscrolldown,    {.i =  3} },
+	{ ControlMask,          Button4, zoom,           {.f = +1} },
+	{ ControlMask,          Button5, zoom,           {.f = -1} },
+	{ ControlMask,          Button3, zoomreset,      {.f =  0} },
+	{ XK_ANY_MOD,           Button2, selpaste,       {.i =  0},      1 },
 	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
 	{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
