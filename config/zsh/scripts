@@ -1,0 +1,30 @@
+lfcd () {
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    cd "$(command lf -print-last-dir "$@")"
+}
+
+pac() {
+    local selected_package
+    selected_package=$(pacman -Slq | fzf --preview 'pacman -Si {}' --layout=reverse)
+
+    if [ -n "$selected_package" ]; then
+        sudo pacman -S "$selected_package"
+    else
+        echo "No package selected or operation canceled."
+        return 1
+    fi
+}
+
+mkcd() {
+  if [[ -z "$1" ]]; then
+    echo "No arguments received"
+    return 1
+  fi
+
+  if [[ -d "$1" ]]; then
+    cd "$1" || return 1
+  else
+    command mkdir "$1" && cd "$1" || return 1
+  fi
+}
+
