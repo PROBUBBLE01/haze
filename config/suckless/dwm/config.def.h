@@ -9,12 +9,12 @@ static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows sel
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 8;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;        /* 0 means no systray */
 
+static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "SF Pro Text:style=Semibold:size=9:antialias=true:autohint=true","SauceCodePro Nerd Font:style=Regular:size=10:antialias=true:autohint=true","Noto Color Emoji:style=Regular:pixelsize=12:antialias=true:autohint=true"};
-static const char dmenufont[]       = "SF Pro Text:style=Semibold:size=9:antialias=true:autohint=true";
+static const char *fonts[]          = { "Inter:style=Semibold:size=9:antialias=true:autohint=true","SauceCodePro Nerd Font:style=Regular:size=10:antialias=true:autohint=true","Noto Color Emoji:style=Regular:pixelsize=12:antialias=true:autohint=true"};
+static const char dmenufont[]       = "Inter:style=Semibold:size=9:antialias=true:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -28,9 +28,8 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_gray5,  col_gray2  },
 };
 
-
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -39,6 +38,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "mpv",      NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -77,12 +77,13 @@ static const char *browser[]  = { "firefox", NULL };
 static const char *files[]    = { "pcmanfm", NULL };
 
 /* SHCMD Commands */
-static const char incvol[]    =  "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+ && kill -35 $(pidof dwmblocks)";
-static const char decvol[]    =  "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && kill -35 $(pidof dwmblocks)";
+static const char incvol[]    =  "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 3%+ && kill -35 $(pidof dwmblocks)";
+static const char decvol[]    =  "wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%- && kill -35 $(pidof dwmblocks)";
 static const char mutevol[]   =  "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && kill -35 $(pidof dwmblocks)";
-static const char printscr[]  = "maim -s ~/media/pictures/screenshots/$(date +%s).png && notify-send -i photo 'Screenshot Saved'";
+static const char printscr[]  = "maim -s ~/media/pictures/screenshots/$(date +%s).png && notify-send -i photoqt 'Screenshot Saved'";
 static const char dpmenu[]    = "dpmenu";
 
+#include "movestack.c"
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
         { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
@@ -100,7 +101,6 @@ static const Key keys[] = {
         { 0,                            XF86XK_MonBrightnessUp,  spawn,        {.v = inclight } },
 	{ 0,                            XF86XK_MonBrightnessDown,spawn,        {.v = declight } },
 
-
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -108,6 +108,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1} },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1} },
 	{ MODKEY,                       XK_s,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
@@ -150,4 +152,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
